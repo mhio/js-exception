@@ -1,0 +1,29 @@
+{
+  "name": "@mhp/exception",
+  "version": "0.0.1",
+  "description": "Extend Errors into Exceptions",
+  "main": "Exception.js",
+  "repository": "https://github.com/mhp/node-exception",
+  "author": "MH",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "mocha test/unit test/int",
+    "test:unit": "mocha test/int",
+    "test:int": "mocha test/unit",
+    "test:coverage": "nyc _mocha test/unit test/int && nyc report -r html && nyc check-coverage",
+    "test:watch": "nodemon -x mocha -b test/unit test/int",
+    "release:test": "set -uex; yarn test; npm version prerelease; npm publish --tag testing --access restricted",
+    "release:patch": "set -uex; rm -rf node_modules; yarn; yarn run test:coverage; npm version patch; git push; npm publish --access restricted; git push --tags"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-module-method": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-match-pattern": "^1.1.0",
+    "mocha": "^4.0.1",
+    "source-map-support": "^0.5.0"
+  }
+}
