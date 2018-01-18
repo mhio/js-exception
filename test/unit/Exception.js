@@ -1,0 +1,40 @@
+const { Exception } = require('../../')
+
+describe('mh::test::Unit::Exception', function () {
+  
+  it('should have a Exception', function() {
+    expect(Exception).to.be.ok
+  })
+
+  it('should create a Exception', function() {
+    let r = new Exception({ message: {} })
+    expect(r).to.be.ok
+  })
+
+  describe('Exception instance', function () {
+    
+    let excpt = null
+
+    before(function(){
+      excpt = new Exception('standard message', {
+        label: 'a user label',
+        simple:'a user simple message',
+        code: 'someC0DE',
+      })
+    })
+
+    it('should set a label', function(){
+      expect( excpt.label ).to.equal('a user label')
+    })
+
+    it('should set a simple', function(){
+      expect( excpt.simple ).to.equal('a user simple message')
+    })
+
+    it('should set a code', function(){
+      expect( excpt.code ).to.equal('someC0DE')
+    })
+
+  })
+
+})
