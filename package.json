@@ -15,7 +15,7 @@
     "test:watch": "nodemon -x mocha -b test/unit test/int",
     "release:test": "set -uex; yarn test; npm version prerelease; npm publish --tag testing --access public",
     "release:patch2": "set -uex; rm -rf node_modules; yarn; yarn run test:coverage; npm version patch; git push; npm publish --access public; git push --tags",
-    "release:patch": "set -uex; rm -rf node_modules; yarn; yarn run test:coverage; npm version patch; npm publish --access public; git push --tags"
+    "release:patch": "set -uex; rm -rf node_modules; yarn; yarn run test:coverage; npm version patch; npm publish --access public;"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
