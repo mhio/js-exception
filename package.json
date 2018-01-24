@@ -1,6 +1,6 @@
 {
   "name": "@mhp/exception",
-  "version": "0.0.2-1",
+  "version": "0.0.2-2",
   "description": "Extend Errors into Exceptions",
   "main": "Exception.js",
   "repository": "https://github.com/mhp/node-exception",
