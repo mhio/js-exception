@@ -1,10 +1,10 @@
 {
-  "name": "@mhp/exception",
+  "name": "@mhio/exception",
   "version": "0.1.2",
   "description": "Extend Errors into Exceptions",
   "main": "src/index.js",
   "repository": "https://github.com/mhp/node-exception",
-  "author": "MH",
+  "author": "Matt Hoyle",
   "license": "MIT",
   "private": false,
   "scripts": {
