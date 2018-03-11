@@ -8,7 +8,27 @@ describe('mh::test::Unit::Exception', function () {
   })
 
   it('should create a Exception', function() {
-    let r = new Exception({ message: {} })
+    let r = new Exception('message')
+    expect(r).to.be.ok
+  })
+
+  it('should create a Exception', function() {
+    let r = new Exception('message', { message: {} })
+    expect(r).to.be.ok
+  })
+
+  it('should create a Exception', function() {
+    let r = new Exception('message', null)
+    expect(r).to.be.ok
+  })
+
+  it('should create a Exception', function() {
+    let r = new Exception('message', undefined)
+    expect(r).to.be.ok
+  })
+
+  it('should create a Exception', function() {
+    let r = new Exception('message', false)
     expect(r).to.be.ok
   })
 
