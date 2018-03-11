@@ -27,6 +27,13 @@ describe('mh::test::Unit::ErrorException', function () {
       expect( excpt.error.message ).to.equal('whatever')
     })
 
+    it('should set an error', function(){
+      let err = new Error('newone')
+      excpt.setError(err)
+      expect( excpt.error ).to.be.an('Error')
+      expect( excpt.error.message ).to.equal('newone')
+    })
+
   })
 
 })
