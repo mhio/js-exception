@@ -1,4 +1,4 @@
-Exception - [@mhio/exception](http://npmjs.com/mhio/exception
+Exception - [@mhio/exception](http://npmjs.com/package/@mhio/exception)
 ----------
 
 ES2015+ Exception class extending Error
@@ -28,4 +28,7 @@ class MyException extends Exception {
 throw new MyException('Normal error message', { simple: 'Set a simple message', label: 'UI Label', myprop: 13 })
 ```
 
+## Links
 
+- Github - [mhio/node-exception](https://github.com/mhio/js-exception)
+- npm - [@mhio/exception](https://www.npmjs.com/package/@mhio/exception)
