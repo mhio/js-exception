@@ -41,14 +41,11 @@ class Exception extends Error {
     }
 
     if ( !metadata || typeof metadata !== 'object') { 
-      this.label  = undefined
-      this.simple = undefined
-      this.code   = undefined
-    } else {
-      this.label  = metadata.label
-      this.simple = metadata.simple
-      this.code   = metadata.code
+      throw new Error('Error metadata must be an object')
     }
+    this.label  = metadata.label
+    this.simple = metadata.simple
+    this.code   = metadata.code
   }
 
   /**
