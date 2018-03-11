@@ -13,6 +13,10 @@
     "test:int": "mocha test/unit",
     "test:coverage": "nyc _mocha test/unit test/int && nyc report -r html && nyc check-coverage",
     "test:watch": "nodemon -x mocha -b test/unit test/int",
+    "build": "yarn run build:doc",
+    "build:doc": "set -uex; yarn run build:doc:html; yarn run build:doc:md",
+    "build:doc:html": "jsdoc -c .jsdoc.json -d doc/html src/",
+    "build:doc:md": "jsdoc2md -c ./.jsdoc.json --separators -f src/* > doc/API.md",
     "release:test": "set -uex; yarn test; npm version prerelease; npm publish --tag testing --access public",
     "release:patch": "set -uex; git pull; rm -rf node_modules; yarn; yarn run test:coverage; npm version patch; git push; npm publish --access public; git push --tags"
   },
@@ -23,6 +27,8 @@
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-match-pattern": "^1.1.0",
+    "jsdoc": "^3.5.5",
+    "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^4.0.1",
     "source-map-support": "^0.5.0"
   }

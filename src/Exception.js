@@ -1,8 +1,20 @@
+
+/** 
+ Exception extends the Error class to more easily annotate Javascript errors with metadata.
+
+ ```
+ class MyException extends Exception {}
+ throw new MyException('normal code error message', {
+   label: 'A UI Label for the error', 
+   simple: 'A simple human message',
+   code: 14
+ })
+ ``` 
+*/
+
 class Exception extends Error {
 
   constructor( message, metadata = {} ){
-
-    // Make it an `Error`
     super(message)
 
     // Standard `Error` things
@@ -28,7 +40,10 @@ class Exception extends Error {
 
   }
 
-  // Fix Errors `.toJSON` for our Exceptions
+  /**
+   * @summary Fix `Error.toJSON` for our Exception
+   * @description Include important non enumerable properties that can be removed later for users. 
+   */ 
   toJSON(){
     let o = {}
     for (let key in this){
@@ -43,7 +58,7 @@ class Exception extends Error {
 }
 
 
-// An `Exception` that encapsulate an `Error`
+/** An `Exception` that encapsulate an `Error` */
 class ErrorException extends Exception {
 
   constructor( message, metadata = {} ){
@@ -54,7 +69,7 @@ class ErrorException extends Exception {
     this.error = metadata.error
   }
 
-  /*
+  /**
    * @summary Attach an Error
    * @param {Error} error - The error to attach
    */
@@ -65,21 +80,21 @@ class ErrorException extends Exception {
 }
 
 
-// An `Exception` for the web
+/** An `Exception` for the web */
 class WebException extends Exception {
 
   constructor( message, metadata = {} ){
 
-    // Make it an `Exception`
+    //Make it an `Exception`
     super(message, metadata)
 
-    // A http status code
+    //** A http status code */
     if (this.constructor.status) this.status = this.constructor.status
     if ('status' in metadata)  this.status = metadata.status
 
   }
 
-  /*
+  /**
    * @summary statusCode
    * @description Support `.statusCode` for express
    */
@@ -90,7 +105,7 @@ class WebException extends Exception {
     this.status = val
   }
 
-  /*
+  /**
    * @summary Turn an error into a JSON response
    * @description Turns the Exception into a format that can be sent to a client in a JSON response. `.stack` depends on the node environment (`NODE_ENV`)
    * @returns {object}
