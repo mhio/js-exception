@@ -10,7 +10,7 @@ throw new MyException('normal code error message', {
   code: 14
 })</code></pre></dd>
 <dt><a href="#ErrorException">ErrorException</a> ⇐ <code><a href="#Exception">Exception</a></code></dt>
-<dd><p>An <code>Exception</code> that encapsulate an <code>Error</code></p></dd>
+<dd><p>An <code>Exception</code> that can encapsulate an <code>Error</code></p></dd>
 <dt><a href="#WebException">WebException</a> ⇐ <code><a href="#Exception">Exception</a></code></dt>
 <dd><p>An <code>Exception</code> for the web</p></dd>
 </dl>
@@ -75,7 +75,7 @@ throw new MyException('normal code error message', {
 <a name="ErrorException"></a>
 
 ## ErrorException ⇐ [<code>Exception</code>](#Exception)
-<p>An <code>Exception</code> that encapsulate an <code>Error</code></p>
+<p>An <code>Exception</code> that can encapsulate an <code>Error</code></p>
 
 **Kind**: global class  
 **Extends**: [<code>Exception</code>](#Exception)  
