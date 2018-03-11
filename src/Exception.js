@@ -43,18 +43,29 @@ class Exception extends Error {
 }
 
 
+// An `Exception` that encapsulate an `Error`
 class ErrorException extends Exception {
-  constructor( message, metadata = {} ){
 
+  constructor( message, metadata = {} ){
     // Make it an `Exception`
     super(message, metadata)
 
+    // Required but undefined is fine. 
     this.error = metadata.error
-
   }
+
+  /*
+   * @summary Attach an Error
+   * @param {Error} error - The error to attach
+   */
+  setError( error ){
+    return this.error = error
+  }
+
 }
 
 
+// An `Exception` for the web
 class WebException extends Exception {
 
   constructor( message, metadata = {} ){
@@ -68,7 +79,10 @@ class WebException extends Exception {
 
   }
 
-  // Support `.statusCode` for express
+  /*
+   * @summary statusCode
+   * @description Support `.statusCode` for express
+   */
   get statusCode(){
     return this.status
   }
@@ -76,6 +90,11 @@ class WebException extends Exception {
     this.status = val
   }
 
+  /*
+   * @summary Turn an error into a JSON response
+   * @description Turns the Exception into a format that can be sent to a client in a JSON response. `.stack` depends on the node environment (`NODE_ENV`)
+   * @returns {object}
+   */
   toResponse(){
     let o = this.toJSON()
     if ( process && process.env && process.env.NODE_ENV !== 'development' ) delete o.stack
