@@ -66,7 +66,7 @@ class Exception extends Error {
 
 
 /** 
- * An `Exception` that encapsulate an `Error` 
+ * An `Exception` that can encapsulate an `Error` 
  * @extends Exception
  * @property {Error} error         - The original error that is being wrapped
  * @param {string} message         - Standard `Error` message
