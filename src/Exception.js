@@ -14,9 +14,9 @@
  * @extends Error
  * @param {string} message            - Standard `Error` message
  * @param {object} metadata           - Extra metadata for the `Exception`
- * @param {object} metadata.label     - A UI label for the error
- * @param {object} metadata.simple    - A simple message for humans
- * @param {object} metadata.code      - An error code
+ * @param {string} metadata.label     - A UI label for the error
+ * @param {string} metadata.simple    - A simple message for humans
+ * @param {string|number} metadata.code      - An error code
  * @property {string} name            - Name for the error, defaults to Class.name
  * @property {string} message         - Standard `Error` message
  * @property {string} stack           - Get a stack trace where we can
