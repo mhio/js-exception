@@ -23,7 +23,7 @@ describe('mh::test::Unit::WebException', function(){
     //  "stack":    String,
     //}`
 
-    before(function(){
+    beforeEach(function(){
       excpt = new WebException('standard message', {
         status: 401
       })
@@ -35,6 +35,12 @@ describe('mh::test::Unit::WebException', function(){
 
     it('should set an statusCode', function(){
       expect( excpt.statusCode ).to.equal(401)
+    })
+
+    it('should set via statusCode', function(){
+      excpt.statusCode = 402
+      expect( excpt.statusCode ).to.equal(402)
+      expect( excpt.status ).to.equal(402)
     })
 
     it('should get .toJSON', function(){
@@ -59,7 +65,7 @@ describe('mh::test::Unit::WebException', function(){
   })
 
   describe('extended class', function(){
-    
+
     class MyStatusException extends WebException {}
     MyStatusException.status = 209
 
