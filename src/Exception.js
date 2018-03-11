@@ -40,10 +40,15 @@ class Exception extends Error {
       this.stack = (new Error(message)).stack
     }
 
-    if ('label' in metadata)   this.label  = metadata.label
-    if ('simple' in metadata)  this.simple = metadata.simple
-    if ('code' in metadata)    this.code   = metadata.code
-
+    if ( !metadata || typeof metadata !== 'object') { 
+      this.label  = undefined
+      this.simple = undefined
+      this.code   = undefined
+    } else {
+      this.label  = metadata.label
+      this.simple = metadata.simple
+      this.code   = metadata.code
+    }
   }
 
   /**
