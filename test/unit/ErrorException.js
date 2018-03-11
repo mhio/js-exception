@@ -1,3 +1,4 @@
+/* global expect */
 const { ErrorException } = require('../../')
 
 describe('mh::test::Unit::ErrorException', function () {

@@ -1,3 +1,4 @@
+/* global expect, _ */
 const { WebException } = require('../../')
 
 describe('mh::test::Unit::WebException', function () {
@@ -15,12 +16,12 @@ describe('mh::test::Unit::WebException', function () {
     
     let excpt = null
 
-    let WebException_pattern = `{
-      "message":  String,
-      "status":   Integer AND range(400, 599),
-      "name":     "WebException",
-      "stack":    String,
-    }`
+    //let WebException_pattern = `{
+    //  "message":  String,
+    //  "status":   Integer AND range(400, 599),
+    //  "name":     "WebException",
+    //  "stack":    String,
+    //}`
 
     before(function(){
       excpt = new WebException('standard message', {
