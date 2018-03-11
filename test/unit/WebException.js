@@ -1,7 +1,7 @@
 /* global expect, _ */
 const { WebException } = require('../../')
 
-describe('mh::test::Unit::WebException', function () {
+describe('mh::test::Unit::WebException', function(){
   
   it('should have a WebException', function() {
     expect(WebException, 'WebException module').to.be.ok
@@ -12,7 +12,7 @@ describe('mh::test::Unit::WebException', function () {
     expect(r).to.be.ok
   })
 
-  describe('WebException instance', function () {
+  describe('WebException instance', function(){
     
     let excpt = null
 
@@ -56,6 +56,17 @@ describe('mh::test::Unit::WebException', function () {
       })
     })
 
+  })
+
+  describe('extended class', function(){
+    
+    class MyStatusException extends WebException {}
+    MyStatusException.status = 209
+
+    it('should add the class static status', function(){
+      let mys = new MyStatusException('whatever')
+      expect( mys.status ).to.equal(209)
+    })
   })
 
 })
