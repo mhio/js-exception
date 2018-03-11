@@ -1,27 +1,31 @@
 
 /** 
- Exception extends the Error class to more easily annotate Javascript errors with metadata.
-
- ```
- class MyException extends Exception {}
- throw new MyException('normal code error message', {
-   label: 'A UI Label for the error', 
-   simple: 'A simple human message',
-   code: 14
- })
- ``` 
-*/
+ * Exception extends the Error class to more easily annotate Javascript errors with metadata.
+ * @extends Error
+ *
+ *
+ * ```
+ * class MyException extends Exception {}
+ * throw new MyException('normal code error message', {
+ *   label: 'A UI Label for the error', 
+ *   simple: 'A simple human message',
+ *   code: 14
+ * })
+ * ``` 
+ */
 
 class Exception extends Error {
 
   constructor( message, metadata = {} ){
     super(message)
 
-    // Standard `Error` things
+    /** @property {string} name - Standard Exception name */
     this.name = this.constructor.name
+
+    /** @property {string} message - Standard Error message */
     this.message = message
 
-    // Get a stack trace where we can
+    /** @property {string} metadata.label - Get a stack trace where we can */
     /* istanbul ignore else */
     if (typeof Error.captureStackTrace === 'function'){
       Error.captureStackTrace(this, this.constructor)
@@ -29,20 +33,21 @@ class Exception extends Error {
       this.stack = (new Error(message)).stack
     }
 
-    // A standard place to store a more human readable error messages
+    /** @property {string} metadata.label - A standard place to store a more human readable error messages */
     if ('label' in metadata)   this.label  = metadata.label
 
-    // Simple error message, for the hoomans
+    /** @property {string} metadata.simple - Simple error message, for the hoomans */
     if ('simple' in metadata)  this.simple = metadata.simple
 
-    // An error code
+    /** @property {string|number} metadata.code - An error code */
     if ('code' in metadata)    this.code   = metadata.code
 
   }
 
   /**
    * @summary Fix `Error.toJSON` for our Exception
-   * @description Include important non enumerable properties that can be removed later for users. 
+   * @description Includes important non enumerable properties
+   * @returns {object} 
    */ 
   toJSON(){
     let o = {}
@@ -58,7 +63,10 @@ class Exception extends Error {
 }
 
 
-/** An `Exception` that encapsulate an `Error` */
+/** 
+ * An `Exception` that encapsulate an `Error` 
+ * @extends Exception
+*/
 class ErrorException extends Exception {
 
   constructor( message, metadata = {} ){
@@ -80,12 +88,13 @@ class ErrorException extends Exception {
 }
 
 
-/** An `Exception` for the web */
+/** 
+ * An `Exception` for the web 
+ * @extends Exception
+ */
 class WebException extends Exception {
 
   constructor( message, metadata = {} ){
-
-    //Make it an `Exception`
     super(message, metadata)
 
     //** A http status code */
