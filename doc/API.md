@@ -55,9 +55,9 @@ throw new MyException('normal code error message', {
 | --- | --- | --- |
 | message | <code>string</code> | <p>Standard <code>Error</code> message</p> |
 | metadata | <code>object</code> | <p>Extra metadata for the <code>Exception</code></p> |
-| metadata.label | <code>object</code> | <p>A UI label for the error</p> |
-| metadata.simple | <code>object</code> | <p>A simple message for humans</p> |
-| metadata.code | <code>object</code> | <p>An error code</p> |
+| metadata.label | <code>string</code> | <p>A UI label for the error</p> |
+| metadata.simple | <code>string</code> | <p>A simple message for humans</p> |
+| metadata.code | <code>string</code> \| <code>number</code> | <p>An error code</p> |
 
 
 * * *
