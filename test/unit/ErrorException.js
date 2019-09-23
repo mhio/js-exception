@@ -8,30 +8,28 @@ describe('mh::test::Unit::ErrorException', function () {
   })
 
   it('should create a ErrorException', function() {
-    let r = new ErrorException({ message: {} })
+    let r = new ErrorException('message', new Error())
     expect(r).to.be.ok
   })
 
   describe('ErrorException instance', function () {
     
-    let excpt = null
+    let ex
 
     before(function(){
-      excpt = new ErrorException('standard message', {
-        error: new Error('whatever'),
-      })
+      ex = new ErrorException('standard message', new Error('whatever'), {})
     })
 
     it('should set an error', function(){
-      expect( excpt.error ).to.be.an('Error')
-      expect( excpt.error.message ).to.equal('whatever')
+      expect( ex.error ).to.be.an('Error')
+      expect( ex.error.message ).to.equal('whatever')
     })
 
     it('should set an error', function(){
       let err = new Error('newone')
-      excpt.setError(err)
-      expect( excpt.error ).to.be.an('Error')
-      expect( excpt.error.message ).to.equal('newone')
+      ex.setError(err)
+      expect( ex.error ).to.be.an('Error')
+      expect( ex.error.message ).to.equal('newone')
     })
 
   })

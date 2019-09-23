@@ -72,16 +72,18 @@ class Exception extends Error {
  * @extends Exception
  * @property {Error} error         - The original error that is being wrapped
  * @param {string} message         - Standard `Error` message
+ * @param {Error} error            - `Error` to attach to the `Exception`
  * @param {object} metadata        - Extra metadata for the object
- * @param {Error} metadata.error   - `Error` to attach to the `Exception`
 */
 class ErrorException extends Exception {
 
-  constructor( message, metadata = {} ){
+  constructor( message, error, metadata = {} ){
+    if (!message) throw new Exception('ErrorException requires a message paramater')
+    if (!error) throw new Exception('ErrorException requires an error paramater')
     super(message, metadata)
 
     // Required but undefined is fine. 
-    this.error = metadata.error
+    this.error = error
   }
 
   /**

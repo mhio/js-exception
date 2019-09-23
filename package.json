@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
     "babel-eslint": "^10.0.3",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "chai-match-pattern": "^1.1.0",
     "eslint": "^6.4.0",

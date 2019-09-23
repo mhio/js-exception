@@ -1,7 +1,7 @@
 /* global expect */
 const { Exception } = require('../../')
 
-describe('mh::test::Unit::Exception', function () {
+describe('mhio::exceptions::unit::Exception', function () {
   
   it('should have a Exception', function() {
     expect(Exception).to.be.ok
