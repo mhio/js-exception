@@ -2,7 +2,7 @@
   "name": "@mhio/exception",
   "version": "0.2.1-0",
   "description": "Extend Errors into Exceptions",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/mhio/js-exception",
   "author": "mhio",
   "license": "MIT",
@@ -15,11 +15,12 @@
     "test:watch": "yarn run watch 'mocha -b test/unit test/int || exit 1'",
     "watch": "nodemon -i doc/ -i test/output/ -x",
     "test:lint": "eslint src/ test/",
-    "build": "yarn run build:doc",
+    "build": "set -uex; yarn run build:code; yarn run build:doc",
+    "build:code": "babel -d lib/ src/",
     "build:doc": "set -uex; yarn run build:doc:html; yarn run build:doc:md",
     "build:doc:html": "jsdoc -c .jsdoc.json -d doc/html src/",
     "build:doc:md": "jsdoc2md -c ./.jsdoc.json --separators -f src/* > doc/API.md",
-    "release:test": "set -uex; yarn test; npm version prerelease; npm publish --tag testing --access public",
+    "release:test": "set -uex; yarn test; yarn run build; npm version prerelease; npm publish --tag testing --access public",
     "release:patch": "set -uex; git pull; rm -rf node_modules; yarn; yarn run test:coverage; yarn run test:lint; yarn run build; npm version patch; git push; npm publish --access public; git push --tags"
   },
   "devDependencies": {

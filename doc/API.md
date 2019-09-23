@@ -89,7 +89,7 @@ throw new MyException('normal code error message', {
 
 
 * [ErrorException](#ErrorException) ⇐ [<code>Exception</code>](#Exception)
-    * [new ErrorException(message, metadata)](#new_ErrorException_new)
+    * [new ErrorException(message, error, metadata)](#new_ErrorException_new)
     * [.setError(error)](#ErrorException+setError)
     * [.toJSON()](#Exception+toJSON) ⇒ <code>object</code>
 
@@ -98,13 +98,13 @@ throw new MyException('normal code error message', {
 
 <a name="new_ErrorException_new"></a>
 
-### new ErrorException(message, metadata)
+### new ErrorException(message, error, metadata)
 
 | Param | Type | Description |
 | --- | --- | --- |
 | message | <code>string</code> | <p>Standard <code>Error</code> message</p> |
+| error | <code>Error</code> | <p><code>Error</code> to attach to the <code>Exception</code></p> |
 | metadata | <code>object</code> | <p>Extra metadata for the object</p> |
-| metadata.error | <code>Error</code> | <p><code>Error</code> to attach to the <code>Exception</code></p> |
 
 
 * * *
