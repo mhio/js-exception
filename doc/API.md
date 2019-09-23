@@ -2,13 +2,14 @@
 
 <dl>
 <dt><a href="#Exception">Exception</a> ⇐ <code>Error</code></dt>
-<dd><p><p>Exception extends the Error class to more easily annotate Javascript errors with metadata.</p></p>
+<dd><p>Exception extends the Error class to more easily annotate Javascript errors with metadata.</p>
 <pre class="prettyprint source"><code>class MyException extends Exception {}
 throw new MyException('normal code error message', {
   label: 'A UI Label for the error', 
   simple: 'A simple human message',
   code: 14
-})</code></pre></dd>
+})
+</code></pre></dd>
 <dt><a href="#ErrorException">ErrorException</a> ⇐ <code><a href="#Exception">Exception</a></code></dt>
 <dd><p>An <code>Exception</code> to encapsulate an existing <code>Error</code></p></dd>
 <dt><a href="#WebException">WebException</a> ⇐ <code><a href="#Exception">Exception</a></code></dt>
@@ -24,7 +25,8 @@ throw new MyException('normal code error message', {
   label: 'A UI Label for the error', 
   simple: 'A simple human message',
   code: 14
-})</code></pre>
+})
+</code></pre>
 
 **Kind**: global class  
 **Extends**: <code>Error</code>  
@@ -127,6 +129,7 @@ throw new MyException('normal code error message', {
 
 **Kind**: instance method of [<code>ErrorException</code>](#ErrorException)  
 **Summary**: <p>Fix <code>Error.toJSON</code> for our Exception</p>  
+**Overrides**: [<code>toJSON</code>](#Exception+toJSON)  
 
 * * *
 
@@ -194,6 +197,7 @@ throw new MyException('normal code error message', {
 
 **Kind**: instance method of [<code>WebException</code>](#WebException)  
 **Summary**: <p>Fix <code>Error.toJSON</code> for our Exception</p>  
+**Overrides**: [<code>toJSON</code>](#Exception+toJSON)  
 
 * * *
 
