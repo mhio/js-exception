@@ -4,7 +4,7 @@
   "description": "Extend Errors into Exceptions",
   "main": "src/index.js",
   "repository": "https://github.com/mhp/node-exception",
-  "author": "Matt Hoyle",
+  "author": "mhio",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -23,16 +23,17 @@
     "release:patch": "set -uex; git pull; rm -rf node_modules; yarn; yarn run test:coverage; yarn run test:lint; yarn run build; npm version patch; git push; npm publish --access public; git push --tags"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-async-to-module-method": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
     "chai": "^4.1.2",
     "chai-match-pattern": "^1.1.0",
-    "eslint": "^4.18.2",
+    "eslint": "^6.4.0",
     "jsdoc": "^3.5.5",
-    "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^4.0.1",
+    "jsdoc-to-markdown": "^5.0.1",
+    "mocha": "^6.2.0",
     "source-map-support": "^0.5.0"
-  }
+  },
+  "dependencies": {}
 }
