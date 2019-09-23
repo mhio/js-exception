@@ -5,6 +5,7 @@ coverage/
 doc/html
 pkg/
 *.tgz
+lib/
 
 yarn-error.log
 npm-error.log
