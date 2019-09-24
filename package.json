@@ -1,6 +1,6 @@
 {
   "name": "@mhio/exception",
-  "version": "0.2.1-2",
+  "version": "0.2.1",
   "description": "Extend Errors into Exceptions",
   "main": "lib/index.js",
   "repository": "https://github.com/mhio/js-exception",
